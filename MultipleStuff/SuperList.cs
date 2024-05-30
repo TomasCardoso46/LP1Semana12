@@ -24,5 +24,29 @@ namespace MultipleStuff
             }
         }
 
+        // Versão 2: Classe/struct específica
+        public struct MinMax
+        {
+            public double Min;
+            public double Max;
+        }
+
+        public MinMax GetMinMax2()
+        {
+            if (Count == 0)
+                throw new InvalidOperationException("The list is empty.");
+
+            MinMax result = new MinMax { Min = double.MaxValue, Max = double.MinValue };
+
+            foreach (var number in this)
+            {
+                if (number < result.Min)
+                    result.Min = number;
+                if (number > result.Max)
+                    result.Max = number;
+            }
+
+            return result;
+        }
     }
 }
