@@ -48,5 +48,27 @@ namespace MultipleStuff
 
             return result;
         }
+
+        // Versão 3: Tuplas de referência
+        public Tuple<double, double> GetMinMax3()
+        {
+            if (Count == 0)
+                throw new InvalidOperationException("The list is empty.");
+
+            double min = double.MaxValue;
+            double max = double.MinValue;
+
+            foreach (var number in this)
+            {
+                if (number < min)
+                    min = number;
+                if (number > max)
+                    max = number;
+            }
+
+            return Tuple.Create(min, max);
+        }
+
+        
     }
 }
