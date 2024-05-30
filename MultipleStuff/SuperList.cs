@@ -69,6 +69,24 @@ namespace MultipleStuff
             return Tuple.Create(min, max);
         }
 
-        
+        // Versão 4: Tuplas de valor com nomes definidos
+        public (double Min, double Max) GetMinMax4()
+        {
+            if (Count == 0)
+                throw new InvalidOperationException("The list is empty.");
+
+            double min = double.MaxValue;
+            double max = double.MinValue;
+
+            foreach (var number in this)
+            {
+                if (number < min)
+                    min = number;
+                if (number > max)
+                    max = number;
+            }
+
+            return (min, max);
+        }
     }
 }
